@@ -1,12 +1,11 @@
-FROM alpine:3.5
+FROM alpine:3.11
 
-RUN apk add --no-cache caddy
+RUN apk add --no-cache caddy tar wget ca-certificates ruby
 
-COPY Caddyfile.template entrypoint.sh /
+COPY bootstrap.rb entrypoint.sh /
 
 EXPOSE 80 443
-ENV SITE ""
 
 ENTRYPOINT ["/entrypoint.sh"]
-CMD ["/usr/sbin/caddy", "--conf", "/etc/Caddyfile", "--log", "stdout"]
+CMD ["/usr/bin/caddy", "--log", "stdout"]
 
