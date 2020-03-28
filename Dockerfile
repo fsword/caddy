@@ -6,6 +6,8 @@ COPY bootstrap.rb entrypoint.sh /
 
 EXPOSE 80 443
 
+ENV CONF_FILE "/etc/caddy/caddy.conf"
+
 ENTRYPOINT ["/entrypoint.sh"]
-CMD ["/usr/sbin/caddy", "--log", "stdout"]
+CMD ["/usr/sbin/caddy", "--log", "stdout", "-agree"]
 
