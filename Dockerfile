@@ -7,5 +7,5 @@ COPY bootstrap.rb entrypoint.sh /
 EXPOSE 80 443
 
 ENTRYPOINT ["/entrypoint.sh"]
-CMD ["/usr/bin/caddy", "--log", "stdout"]
+CMD ["/usr/sbin/caddy", "--log", "stdout"]
 
