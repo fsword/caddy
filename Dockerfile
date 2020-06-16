@@ -1,7 +1,8 @@
-FROM alpine:3.11
+FROM alpine:3.12
 
-RUN apk add --no-cache caddy tar wget ca-certificates ruby
-
+RUN apk add --no-cache caddy tar ca-certificates ruby
+RUN apk add --no-cache busybox-extras
+RUN apk add --no-cache curl
 COPY bootstrap.rb entrypoint.sh /
 
 EXPOSE 80 443
